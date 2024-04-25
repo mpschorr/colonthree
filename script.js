@@ -6,8 +6,13 @@ const ctx = canvas.getContext("2d");
 const text = ":3"; // Text to bounce around with
 const font = "Poppins"; // Font to use (Poppins is included)
 const textSize = 150; // Size of text
+
 const frameRate = 60; // Frame rate to update & move at
 const speed = 5; // Speed of text's movement
+
+const rainbowLightness = 65;
+const glowLightness = 30;
+const glowSize = 40;
 
 // -- END OF CONFIGURATION --
 
@@ -37,16 +42,16 @@ function draw() {
 
   // Draw text
   ctx.font = `${textSize}px ${font}`;
-  ctx.fillStyle = `hsl(${frame} 100% 65%)`;
+  ctx.fillStyle = `hsl(${frame} 100% ${rainbowLightness}%)`;
   ctx.textAlign = "left";
   ctx.textBaseline = "top";
   ctx.fillText(text, x, y);
 
   // Draw shadow
-  ctx.shadowColor = `hsl(${frame} 100% 75%)`;
+  ctx.shadowColor = `hsl(${frame} 100% ${glowLightness}%)`;
   ctx.shadowOffsetX = 0;
   ctx.shadowOffsetY = 0;
-  ctx.shadowBlur = 40;
+  ctx.shadowBlur = glowSize;
 }
 
 // Update values & draw frame
